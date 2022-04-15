@@ -168,6 +168,7 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/week1/sensor_info_publisher.py
   scripts/week1/week1_assignment1_part1.py
+  scripts/week1/week1_assignment1_part3.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

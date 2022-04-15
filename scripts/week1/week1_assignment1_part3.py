@@ -44,44 +44,52 @@
 # All necessary python imports go here.
 import rospy
 # Copy the code from Part1 here
-from hrwros_msgs.msg import <write-your-code-here-Part1>
+from ros_edx.msg import SensorInformation
 # Import the correct message type for part 3
-from hrwros_week1_assignment.msg import <write-your-code-here-Part3>
+# from hrwros_week1_assignment.msg import <write-your-code-here-Part3>
+from ros_edx.msg import BoxHeightInformation
+
+global bhi_publisher
 
 
 def sensor_info_callback(data, bhi_publisher):
 
     # Copy the code from Part1 here
-    height_box = <write-your-code-here-Part1>
+    height_box = data.sensor_data.range
 
     # Compute the height of the box.
     # Boxes that are detected to be shorter than 10cm are due to sensor noise.
     # Do not publish information about them.
     # Copy the code from Part1 here
-    if <write-your-code-here-Part1>:
+    if height_box < 0.1:
         pass
     else:
         # Declare a message object for publishing the box height information.
-        box_height_info = <write-your-code-here-Part3>
+        box_height_info = BoxHeightInformation()
         # Update height of box.
-        <write-your-code-here-Part3>
+        box_height_info.box_height = height_box
         # Publish box height using the publisher argument passed to the
         # callback function.
-        <write-your-code-here-Part3>
+        rospy.loginfo('box_height_info %0.3f' % box_height_info.box_height)
+        bhi_publisher.publish(box_height_info)
 
 
 if __name__ == '__main__':
 
     # Initialize the ROS node here.
-    rospy.init_node('compute_box_height', anonymous=False)
+    rospy.init_node('compute_box_height', anonymous=True)
 
     # Copy the code from Part1 here
-    rospy.loginfo('Waiting for topic %s to be published...', <use the correct topic name here>)
-    rospy.wait_for_message('<use the correct topic name here>', <use the correct message type here>)
-    rospy.loginfo('%s topic is now available!', <use the correct topic name here>)
+    # Wait for the topic that publishes sensor information to become available - Part1
+    rospy.loginfo('Waiting for topic %s to be published...', '/sensor_info')
+    # rospy.wait_for_message('/sensor_info', < use the correct message type here >)
+    rospy.wait_for_message('/sensor_info', SensorInformation)
+    # rospy.loginfo('%s topic is now available!', < use the correct topic name here >)
+    rospy.loginfo('%s topic is now available!', '/sensor_info')
 
     # Create the publisher for Part3 here
-    bhi_publisher = rospy.Publisher('<use correct topic name here>', <use correct message type here>, queue_size=10)
+    bhi_publisher = rospy.Publisher(
+        '/box_height_info', BoxHeightInformation, queue_size=10)
 
     # Note here that an ADDITIONAL ARGUMENT (bhi_publisher) is passed to the
     # subscriber. This is a way to pass ONE additional argument to the
@@ -91,7 +99,8 @@ if __name__ == '__main__':
     # Implementation like we saw in the action server code illustration.
 
     # Copy the subscriber from Part1 here
-    rospy.Subscriber('<use correct topic name here>', <use correct message type here>, <use the correct callback name here>, bhi_publisher)
-
+    # rospy.Subscriber('<use correct topic name here>', < use correct message type here > , < use the correct callback name here > , bhi_publisher)
+    rospy.Subscriber('/sensor_info', SensorInformation,
+                     sensor_info_callback, bhi_publisher)
     # Prevent this code from exiting until Ctrl+C is pressed.
     rospy.spin()

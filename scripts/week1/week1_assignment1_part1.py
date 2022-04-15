@@ -46,14 +46,13 @@ import rospy
 
 # Import the correct type of message
 from ros_edx.msg import SensorInformation
-# from ros_edx.msg import BoxHeightInformation
 
 
 def sensor_info_callback(data):
 
     # Compute the height of the box from the sensor reading.
     # Tip: You need to substract the reading from the max_range of the sensor.
-    height_box = data.data.height
+    height_box = data.sensor_data.range
 
     # Compute the height of the box.
     # Boxes that are detected to be shorter than 0.1m are due to sensor noise.
