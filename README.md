@@ -23,24 +23,24 @@ rosrun ros_edx sensor_info_publisher.py
 
 1a. this script subscribe to `/sensor_info` and check if the data is less than 0.1.
 
-    ```
-    $rosrun ros_edx week1_assignment1_part1.py 
-    ```
+```
+rosrun ros_edx week1_assignment1_part1.py 
+```
 
 1b. Creates a custom message
 
-    ```
-    $ rosmsg show ros_edx/BoxHeightInformation 
-    float64 box_height
-    ```
+```
+$ rosmsg show ros_edx/BoxHeightInformation 
+float64 box_height
+```
 
 1c. Creates a node with a publisher and subscriber
 
-    ```
-    $ rosrun ros_edx sensor_info_publisher.py
-    $ rosrun ros_edx week1_assignment1_part1.py
-    $ rosrun ros_edx week1_assignment1_part3.py
-    ```
+```
+$ rosrun ros_edx sensor_info_publisher.py
+$ rosrun ros_edx week1_assignment1_part1.py
+$ rosrun ros_edx week1_assignment1_part3.py
+```
 
 ## Week2
 
@@ -78,11 +78,9 @@ check_urdf robot.urdf
 
 ### Assignments
 
-see [singularity folder](singularity/)
+Require the singularity environtment available in the course. See [singularity folder](singularity/)
 
-Require the singularity environtment available in the course.
-
-´git clone --depth 1 --branch week4  https://github.com/jcorredorc/ros_edx.git´
+`git clone --depth 1 --branch week4  https://github.com/jcorredorc/ros_edx.git `
 
 1. `roslaunch hrwros_week2_assignment visualize_hrwros_assignment1.launch`
 
@@ -101,23 +99,22 @@ soon...
 
 ### Assignments
 
-see [singularity folder](singularity/)
+Require the singularity environtment available in the course. See [singularity folder](singularity/)
 
-Require the singularity environtment available in the course.
 
-´git clone --depth 1 --branch week4  https://github.com/jcorredorc/ros_edx.git´
+`git clone --depth 1 --branch week4  https://github.com/jcorredorc/ros_edx.git `
+
 
 1. `roslaunch week4_moveit_config setup_assistant.launch`
 
 2. 
 
-    `roslaunch hrwros_week4_assignment hrwros_week4_environment.launch`
-    
-    `roscd hrwros_week4_assignment/scripts`
-
-    `rosrun hrwros_week4 hrwros_moveit_commander_cmdline`
-
-    `> load week4_assignment2_script`
+```  
+    roslaunch hrwros_week4_assignment hrwros_week4_environment.launch
+    roscd hrwros_week4_assignment/scripts
+    rosrun hrwros_week4 hrwros_moveit_commander_cmdline
+    > load week4_assignment2_script
+```
 
 3. 
     `roslaunch hrwros_week4_assignment hrwros_week4_environment.launch`
