@@ -1,0 +1,3 @@
+use robot1
+go R1Up
+go down 0.2
