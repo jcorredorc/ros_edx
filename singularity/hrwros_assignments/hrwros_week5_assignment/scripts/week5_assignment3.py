@@ -50,10 +50,8 @@ def new_logical_camera2_callback(data):
         # by the camera.
         object_pose = PoseStamped()
         object_pose.header.stamp = rospy.Time.now()
-        # this frame_id is relative to the logical camera 2
-        # object_pose.header.frame_id = ''<write your code here >
+        # object_pose.header.frame_id = <write your code here >
         object_pose.header.frame_id = 'new_logical_camera_2_frame'
-
         object_pose.pose.position.x = data.models[-1].pose.position.x
         object_pose.pose.position.y = data.models[-1].pose.position.y
         object_pose.pose.position.z = data.models[-1].pose.position.z
@@ -74,6 +72,7 @@ def new_logical_camera2_callback(data):
                 object_pose,
                 'vacuum_gripper2_suction_cup',
                 rospy.Duration(0.1))
+
         except (tf2_ros.LookupException,
                 tf2_ros.ConnectivityException,
                 tf2_ros.ExtrapolationException):
@@ -99,9 +98,9 @@ if __name__ == '__main__':
     tf_listener = tf2_ros.TransformListener(tf_buffer)
 
     # Subscribe to the logical camera topic.
-    # rospy.Subscriber(< write your code here > ,
-    #                   < write your code here >,
-    #                   new_logical_camera2_callback)
+    # rospy.Subscriber(<write your code here>,
+    #                  <write your code here>,
+    #                  new_logical_camera2_callback)
     rospy.Subscriber('/hrwros/new_logical_camera_2',
                      LogicalCameraImage,
                      new_logical_camera2_callback)

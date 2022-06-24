@@ -56,20 +56,16 @@
     <!-- Week 5 Assignment1 Part 1 -->
     <!-- Include the two logical camera models here -->
     <include>
-      <!-- this model: parameter is the folder name!! in which it is located the model!!! -->
-      <!-- <uri>model://logical_camera</uri> -->
       <uri>model://new_logical_camera1</uri>
-      <!-- <pose> 1.2  1.8  2.0 0 1.5708 0</pose> -->
-      <pose> 1.2  1.80  2.0 0 1.5708 0</pose>
+      <pose> 1.2  1.8  2.0 0 1.5708 0</pose>
     </include>  
 
-     <include>
-      <!-- <uri>model://logical_camera</uri> -->
-      <!-- this model: parameter is the folder name!! in which it is located the model!!! -->
+    <include>
       <uri>model://new_logical_camera2</uri>
-      <!-- <pose> 1.2  1.8  2.0 0 1.5708 0</pose> -->
-      <pose> -8.3 -1.23 1.8 0 1.5708 0</pose>
+      <pose> -8.3 -1.23  1.8 0 1.5708 0</pose>
     </include>  
+
+
 
   </world>
 </sdf>

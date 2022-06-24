@@ -18,7 +18,6 @@
         </noise>
       </orientation_noise> -->
     </plugin>
-    
     <link name="logical_camera_link">
       <gravity>false</gravity>
       <inertial>

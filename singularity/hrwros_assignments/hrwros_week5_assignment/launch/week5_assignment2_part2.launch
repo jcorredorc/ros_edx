@@ -4,7 +4,6 @@
     <arg name="gui" default="false"/>
     <arg name="rviz" default="true"/>
 
-
   <!-- We use the launcher for the first assigment to launch the world -->
     <include file="$(find hrwros_week5_assignment)/launch/week5_assignment1.launch">
      <arg name="gui" value="$(arg gui)" />
@@ -15,4 +14,6 @@
     <!-- <node pkg="<correct package>" type="<correct node name>" name="static_tf_object_top" args="<translation x y z> <rotation roll pitch yaw> <parent frame> <child frame>"/> -->
     <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_object_top" args="0 0 0.3 0 0 0 1 plate_top_link turtlebot_object_top"/> 
 
+    <include file="$(find turtlebot_teleop)/launch/keyboard_teleop.launch">
+    </include>
 </launch>
