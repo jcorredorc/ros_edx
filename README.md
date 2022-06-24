@@ -125,6 +125,10 @@ Require the singularity environtment available in the course. See [singularity f
 
 ## Week 5
 
+
+`git clone --depth 1 --branch week5  https://github.com/jcorredorc/ros_edx.git `
+
+
 ```
 $ roslaunch hrwros_gazebo hrwros_environment.launch gui:=false rviz:=true
 ```
